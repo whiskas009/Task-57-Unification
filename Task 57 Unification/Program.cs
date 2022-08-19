@@ -13,9 +13,10 @@ namespace Task_57_Unification
             List<string> firtstSoldiers = new List<string>(){"Антон", "Борис", "Макс", "Артём", "Богдан"};
             List<string> secondSoldiers = new List<string>() { "Марк", "Лиза", "Джексон"};
 
-            var soldiers = secondSoldiers.Union(firtstSoldiers.Where(soldier => soldier.StartsWith("Б")));
+            secondSoldiers = secondSoldiers.Union(firtstSoldiers.Where(soldier => soldier.StartsWith("Б"))).ToList();
+            firtstSoldiers = firtstSoldiers.Where(soldier => soldier.StartsWith("Б") != true).ToList();
 
-            foreach (var soldier in soldiers)
+            foreach (var soldier in secondSoldiers)
             {
                 Console.WriteLine(soldier);
             }
